@@ -8,6 +8,7 @@ import HeaderBar from '../../../components/HeaderBar'
 
 import { useEffectsPost, useStatePost } from '../../../providers/Post'
 import { useEffectsUser, useStateUser } from '../../../providers/User'
+import usePage from '../../../hooks/usePage'
 
 interface Params {
   id: number
@@ -23,6 +24,8 @@ const Details: FC = () => {
 
   const { getPostById } = useEffectsPost()
   const { getUserDetails } = useEffectsUser()
+
+  usePage(loadingPost ? 'Loading Post' : `Post ${postDetails.id} - Details`, true)
 
   useEffect(() => {
     getPostById(routeParams.id)

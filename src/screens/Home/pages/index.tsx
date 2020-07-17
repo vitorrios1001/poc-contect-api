@@ -1,7 +1,8 @@
 import React from 'react'
+import usePage from '../../../hooks/usePage'
 
 const Home = () => {
-
+  usePage('Home')
 
   return (
     <div>
