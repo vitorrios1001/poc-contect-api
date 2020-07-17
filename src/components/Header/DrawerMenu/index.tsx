@@ -1,7 +1,7 @@
-import React, { useState, KeyboardEvent, MouseEvent } from 'react'
+import React, { KeyboardEvent, MouseEvent } from 'react'
 import { Drawer, makeStyles, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core'
 import { ROUTES } from '../../../routes'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 interface Props {
   isOpen: boolean

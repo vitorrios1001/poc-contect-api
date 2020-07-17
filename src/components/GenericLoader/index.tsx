@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { CircularProgress, Typography, makeStyles } from '@material-ui/core'
 
 interface Props {

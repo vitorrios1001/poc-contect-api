@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
 import { ROUTES } from '../../routes'
-import { Link, useRouteMatch, useLocation } from 'react-router-dom'
-import { AppBar, Toolbar, IconButton, Typography, Button, makeStyles, Drawer } from '@material-ui/core'
+import { useLocation } from 'react-router-dom'
+import { AppBar, Toolbar, IconButton, Typography, makeStyles } from '@material-ui/core'
 
 import MenuIcon from '@material-ui/icons/Menu';
 import DrawerMenu from './DrawerMenu';

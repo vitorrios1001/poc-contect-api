@@ -1,12 +1,13 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+
+import { makeStyles } from '@material-ui/core'
 
 import Pagination from '../../../components/Pagination'
+import LoaderBar from '../../../components/LoaderBar'
+import PostList from '../components/PostList'
 
 import { useStatePost, useEffectsPost } from '../../../providers/Post'
-import PostList from '../components/PostList'
-import { makeStyles } from '@material-ui/core'
-import LoaderBar from '../../../components/LoaderBar'
 
 const PostContainer = () => {
   const classes = useStyles()
