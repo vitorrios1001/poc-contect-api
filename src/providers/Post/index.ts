@@ -20,7 +20,7 @@ const usePost = () => {
   const [posts, setPosts] = useState<Post[]>(cachePost?.posts || [])
   const [postDetails, setPostDetails] = useState<Post>({} as Post)
   const [loading, setLoading] = useState(false)
-  const [currentPage, setCurrentPage] = useState<number>(1)
+  const [currentPage, setCurrentPage] = useState<number>(cachePost?.currentPage || 1)
   const lastPage = 10;
 
   const onChangePage = (page: number) => {
@@ -36,7 +36,7 @@ const usePost = () => {
     setTimeout(() => {
       setLoading(false)
       setPosts(data)
-      setStateGlobal<PostGlobal>(DATA_POSTS, { posts: data, currentPage })
+      setStateGlobal<PostGlobal>(DATA_POSTS, { posts: data, currentPage: page })
     }, 1000)
   }
 
