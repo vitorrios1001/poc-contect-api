@@ -8,7 +8,6 @@ import LoaderBar from '../../../components/LoaderBar'
 import PostList from '../components/PostList'
 
 import { useStatePost, useEffectsPost } from '../../../providers/Post'
-import usePage from '../../../hooks/usePage'
 
 const PostContainer = () => {
   const classes = useStyles()
@@ -18,8 +17,6 @@ const PostContainer = () => {
   useEffect(() => {
     getPosts()
   }, [])
-
-  usePage('Posts - POC', true)
 
   return (
     <div className={classes.container}>
