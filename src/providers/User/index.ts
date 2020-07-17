@@ -21,8 +21,10 @@ const useUser = () => {
     setLoading(true)
     const data = await fetchUserById(id)
 
-    setUserDetails(data)
-    setLoading(false)
+    setTimeout(() => {
+      setUserDetails(data)
+      setLoading(false)
+    }, 1000)
   }
 
   return {

@@ -1,8 +1,8 @@
 import request from '../services/request'
 import { Post } from '../models/Post'
 
-export const fetchPosts = async () => {
-  const { data } = await  request.get<Post[]>('/posts')
+export const fetchPosts = async (page: number) => {
+  const { data } = await  request.get<Post[]>(`/posts?_page=${page}`)
 
   return data
 }

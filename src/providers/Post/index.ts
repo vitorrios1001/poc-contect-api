@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import constate from 'constate'
 
 import { Post } from '../../models/Post'
@@ -8,21 +8,36 @@ const usePost = () => {
   const [posts, setPosts] = useState<Post[]>([])
   const [postDetails, setPostDetails] = useState<Post>({} as Post)
   const [loading, setLoading] = useState(false)
+  const [currentPage, setCurrentPage] = useState<number>(1)
+  const lastPage = 10;
 
-  const getPosts = async () => {
+  useEffect(() => {
+    getPosts(currentPage)
+  }, [currentPage])
+
+  const onChangePage = (page: number) => {
+    setCurrentPage(page)
+  }
+
+  const getPosts = async (page = currentPage) => {
     setLoading(true)
-    const data = await fetchPosts()
+    const data = await fetchPosts(page)
 
-    setLoading(false)
-    setPosts(data)
+    window.scrollTo(0, 0)
+    setTimeout(() => {
+      setLoading(false)
+      setPosts(data)
+    }, 1000)
   }
 
   const getPostById = async (id: number) => {
     setLoading(true)
     const data = await fetchPostById(id)
 
-    setLoading(false)
-    setPostDetails(data)
+    setTimeout(() => {
+      setLoading(false)
+      setPostDetails(data)
+    }, 1000)
   }
 
   return {
@@ -30,10 +45,13 @@ const usePost = () => {
       posts,
       postDetails,
       loading,
+      currentPage,
+      lastPage,
     },
     effects: {
       getPosts,
       getPostById,
+      onChangePage,
     },
   }
 }
