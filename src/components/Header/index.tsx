@@ -4,8 +4,8 @@ import { ROUTES } from '../../routes'
 import { useLocation } from 'react-router-dom'
 import { AppBar, Toolbar, IconButton, Typography, makeStyles } from '@material-ui/core'
 
-import MenuIcon from '@material-ui/icons/Menu';
-import DrawerMenu from './DrawerMenu';
+import MenuIcon from '@material-ui/icons/Menu'
+import DrawerMenu from './DrawerMenu'
 
 const Header = () => {
   const classes = useStyles()
@@ -14,7 +14,7 @@ const Header = () => {
   const location = useLocation()
 
   useEffect(() => {
-    const [routeDescription] = ROUTES.filter(item => item.path === location.pathname)
+    const [routeDescription] = ROUTES.filter((item) => item.path === location.pathname)
 
     if (routeDescription) {
       setActiveRoute(routeDescription.key)
@@ -60,4 +60,4 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
-}));
+}))

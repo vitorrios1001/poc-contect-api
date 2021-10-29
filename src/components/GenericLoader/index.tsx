@@ -12,9 +12,7 @@ const GenericLoader = ({ loading = true, text }: Props) => {
   return (
     <div className={classes.container}>
       <CircularProgress className={classes.loader} />
-      <Typography>
-        {text}
-      </Typography>
+      <Typography>{text}</Typography>
     </div>
   )
 }
@@ -32,5 +30,5 @@ const useStyles = makeStyles({
   },
   loader: {
     padding: '2vw',
-  }
+  },
 })

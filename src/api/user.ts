@@ -2,7 +2,7 @@ import request from '../services/request'
 import { User } from '../models/User'
 
 export const fetchUsers = async () => {
-  const { data } = await  request.get<User[]>('/users')
+  const { data } = await request.get<User[]>('/users')
 
   return data
 }

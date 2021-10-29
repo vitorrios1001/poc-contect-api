@@ -2,7 +2,15 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 
 import { Post } from '../../../../../models/Post'
-import { Card, makeStyles, Button, Typography, CardContent, CardActions, Grid } from '@material-ui/core'
+import {
+  Card,
+  makeStyles,
+  Button,
+  Typography,
+  CardContent,
+  CardActions,
+  Grid,
+} from '@material-ui/core'
 
 interface Props {
   post: Post
@@ -26,9 +34,7 @@ const PostItem = ({ post }: Props) => {
             </Typography>
           </Grid>
           <Grid item>
-            <span>
-              {post.body.substring(0, 60)}
-            </span>
+            <span>{post.body.substring(0, 60)}</span>
           </Grid>
         </Grid>
       </CardContent>

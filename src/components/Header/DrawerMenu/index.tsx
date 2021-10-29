@@ -18,7 +18,7 @@ const DrawerMenu = ({ isOpen = false, setOpen }: Props) => {
       ((event as React.KeyboardEvent).key === 'Tab' ||
         (event as React.KeyboardEvent).key === 'Shift')
     ) {
-      return;
+      return
     }
 
     setOpen(open)
@@ -37,18 +37,14 @@ const DrawerMenu = ({ isOpen = false, setOpen }: Props) => {
       role="presentation"
     >
       <List>
-        {
-          ROUTES.filter(route => route.isMenu)
-            .map(({ key, path, icon: Icon }) => (
-              <ListItem key={key} onClick={() => goTo(path)} button>
-                <ListItemIcon>
-                  <Icon />
-                </ListItemIcon>
-                <ListItemText primary={key} />
-              </ListItem>
-            )
-          )
-        }
+        {ROUTES.filter((route) => route.isMenu).map(({ key, path, icon: Icon }) => (
+          <ListItem key={key} onClick={() => goTo(path)} button>
+            <ListItemIcon>
+              <Icon />
+            </ListItemIcon>
+            <ListItemText primary={key} />
+          </ListItem>
+        ))}
       </List>
     </div>
   )
@@ -66,4 +62,4 @@ const useStyles = makeStyles({
   list: {
     width: 250,
   },
-});
+})

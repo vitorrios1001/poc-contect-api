@@ -42,6 +42,6 @@ const useUser = () => {
 
 export const [UserProvider, useStateUser, useEffectsUser] = constate(
   useUser,
-  value => ({ ...value.state }),
-  value => ({ ...value.effects }),
+  (value) => ({ ...value.state }),
+  (value) => ({ ...value.effects }),
 )

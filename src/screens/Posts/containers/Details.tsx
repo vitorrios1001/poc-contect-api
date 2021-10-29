@@ -18,7 +18,7 @@ const Details: FC = () => {
   const route = useRouteMatch()
   const routeParams = route.params as Params
   const classes = useStyles()
-  
+
   const { postDetails, loading: loadingPost } = useStatePost()
   const { userDetails, loading: loadingUser } = useStateUser()
 
@@ -37,25 +37,21 @@ const Details: FC = () => {
     }
   }, [postDetails])
 
-  if (loadingPost) {
-    return <h5>Loading post details...</h5>
-  }
-  
   return (
     <div className={classes.container}>
       <HeaderBar />
-      <h2>Post details</h2>
-      <h5>{postDetails.title}</h5>
-      <p>{postDetails.body}</p>
-      {
-        loadingUser ? (
-          <GenericLoader text="Loading user data. Wait..." />
-        ) : (
+      {loadingPost || loadingUser ? (
+        <GenericLoader text="Loading post data. Wait..." />
+      ) : (
+        <>
+          <h2>Post details</h2>
+          <h5>{postDetails.title}</h5>
+          <p>{postDetails.body}</p>
           <div>
             <h6>User: {userDetails?.name}</h6>
           </div>
-        )
-      }
+        </>
+      )}
     </div>
   )
 }

@@ -14,21 +14,17 @@ interface Props {
 
 const PostList = ({ posts, loading }: Props) => {
   if (!posts.length && loading) {
-    return (
-      <GenericLoader text="Loading posts. Wait..." />
-    )
+    return <GenericLoader text="Loading posts. Wait..." />
   }
 
   return (
     <>
       <Grid container spacing={2}>
-        {
-          posts.map(post => (
-            <Grid key={post.id} item xs={12} sm={6} md={4} lg={3}>
-              <PostItem post={post} />
-            </Grid>
-          ))
-        }
+        {posts.map((post) => (
+          <Grid key={post.id} item xs={12} sm={6} md={4} lg={3}>
+            <PostItem post={post} />
+          </Grid>
+        ))}
       </Grid>
     </>
   )

@@ -7,7 +7,7 @@ import usePage from '../../../hooks/usePage'
 
 const Posts = () => {
   usePage('Posts - POC', true)
-  
+
   return (
     <PostProvider>
       <PostContainer />

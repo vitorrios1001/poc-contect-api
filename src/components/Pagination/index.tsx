@@ -9,11 +9,7 @@ interface Props {
   onChangePage: (page: number) => void
 }
 
-const Pagination = ({
-  lastPage,
-  currentPage,
-  onChangePage,
-}: Props) => {
+const Pagination = ({ lastPage, currentPage, onChangePage }: Props) => {
   const classes = useStyles()
 
   return (
@@ -24,7 +20,7 @@ const Pagination = ({
             count={lastPage}
             page={currentPage}
             onChange={(event, value) => onChangePage(value)}
-            color="primary" 
+            color="primary"
           />
         </Grid>
       </Grid>
@@ -37,5 +33,5 @@ export default Pagination
 const useStyles = makeStyles({
   container: {
     padding: '1rem 0',
-  }
+  },
 })

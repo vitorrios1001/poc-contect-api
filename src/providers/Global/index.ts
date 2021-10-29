@@ -9,7 +9,7 @@ const useGlobal = ({ data }: { data: GlobalState }) => {
   const [state, setState] = useState<GlobalState>(data)
 
   function setStateGlobal<T extends object = object>(key: string, value: T): void {
-    setState(state => ({ ...state, [key]: value }))
+    setState((state) => ({ ...state, [key]: value }))
   }
 
   function getGlobalState<T extends object = object>(key: string): T {
@@ -21,12 +21,12 @@ const useGlobal = ({ data }: { data: GlobalState }) => {
     effects: {
       setStateGlobal,
       getGlobalState,
-    }
+    },
   }
 }
 
 export const [GlobalDataProvider, useStateGlobalData, useEffectsGlobalData] = constate(
   useGlobal,
-  value => ({ ...value.state }),
-  value => ({ ...value.effects }),
+  (value) => ({ ...value.state }),
+  (value) => ({ ...value.effects }),
 )

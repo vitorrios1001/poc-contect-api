@@ -4,12 +4,13 @@ import constate from 'constate'
 import { Post } from '../../models/Post'
 import { fetchPosts, fetchPostById } from '../../api/post'
 import { useEffectsGlobalData } from '../Global'
+import { toast } from 'react-toastify'
 
 const DATA_POSTS = 'DATA_POSTS'
 
 interface PostGlobal {
-  posts: Post[];
-  currentPage: number;
+  posts: Post[]
+  currentPage: number
 }
 
 const usePost = () => {
@@ -21,7 +22,7 @@ const usePost = () => {
   const [postDetails, setPostDetails] = useState<Post>({} as Post)
   const [loading, setLoading] = useState(false)
   const [currentPage, setCurrentPage] = useState<number>(cachePost?.currentPage || 1)
-  const lastPage = 10;
+  const lastPage = 10
 
   const onChangePage = (page: number) => {
     setCurrentPage(page)
@@ -37,6 +38,8 @@ const usePost = () => {
       setLoading(false)
       setPosts(data)
       setStateGlobal<PostGlobal>(DATA_POSTS, { posts: data, currentPage: page })
+
+      toast('Load successfuly')
     }, 1000)
   }
 
@@ -68,6 +71,6 @@ const usePost = () => {
 
 export const [PostProvider, useStatePost, useEffectsPost] = constate(
   usePost,
-  value => ({ ...value.state }),
-  value => ({ ...value.effects }),
+  (value) => ({ ...value.state }),
+  (value) => ({ ...value.effects }),
 )
